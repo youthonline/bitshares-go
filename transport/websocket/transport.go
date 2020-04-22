@@ -10,7 +10,7 @@ import (
 	"sync"
 
 	"github.com/pkg/errors"
-	"github.com/youthonline/youthonline-go/transport"
+	"github.com/youthonline/bitshares-go/transport"
 	"golang.org/x/net/websocket"
 )
 
