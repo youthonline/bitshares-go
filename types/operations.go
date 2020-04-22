@@ -103,12 +103,13 @@ type UnknownOperation struct {
 func (op *UnknownOperation) Type() OpType { return op.kind }
 
 // NewTransferOperation returns a new instance of TransferOperation
-func NewTransferOperation(from, to ObjectID, amount, fee AssetAmount) *TransferOperation {
+func NewTransferOperation(from, to ObjectID, amount, fee AssetAmount, memo *Memo) *TransferOperation {
 	op := &TransferOperation{
 		From:       from,
 		To:         to,
 		Amount:     amount,
 		Fee:        fee,
+		Memo:       memo,
 		Extensions: []json.RawMessage{},
 	}
 
@@ -132,15 +133,15 @@ type TransferOperation struct {
 //	Message string `json:"message"`
 //}
 
-type UInt64 uint64
-type Buffer []byte
-
-type Memo struct {
-	From    PublicKey `json:"from"`
-	To      PublicKey `json:"to"`
-	Nonce   UInt64    `json:"nonce"`
-	Message Buffer    `json:"message"`
-}
+//type UInt64 uint64
+//type Buffer []byte
+//
+//type Memo struct {
+//	From    PublicKey `json:"from"`
+//	To      PublicKey `json:"to"`
+//	Nonce   UInt64    `json:"nonce"`
+//	Message Buffer    `json:"message"`
+//}
 
 func (op *TransferOperation) Type() OpType { return TransferOpType }
 
