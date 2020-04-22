@@ -52,7 +52,14 @@ func TestClient_Transfer(t *testing.T) {
 		Amount:  0,
 	}
 
-	require.NoError(t, client.Transfer(cali4889IDActiveKey, from, to, amount, fee))
+	memo :=types.Memo{
+		From:    types.PublicKey{},
+		To:      types.PublicKey{},
+		Nonce:   0,
+		Message: nil,
+	}
+
+	require.NoError(t, client.Transfer(cali4889IDActiveKey, from, to, amount, fee,&memo))
 }
 
 func TestClient_LimitOrderCreate(t *testing.T) {

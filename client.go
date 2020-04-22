@@ -86,8 +86,8 @@ func (client *Client) Close() error {
 }
 
 // Transfer a certain amount of the given asset
-func (client *Client) Transfer(key string, from, to types.ObjectID, amount, fee types.AssetAmount) error {
-	op := types.NewTransferOperation(from, to, amount, fee)
+func (client *Client) Transfer(key string, from, to types.ObjectID, amount, fee types.AssetAmount, memo *types.Memo) error {
+	op := types.NewTransferOperation(from, to, amount, fee, memo)
 
 	fees, err := client.Database.GetRequiredFee([]types.Operation{op}, fee.AssetID.String())
 	if err != nil {
