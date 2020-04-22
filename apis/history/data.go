@@ -2,7 +2,7 @@ package history
 
 import (
 	"encoding/json"
-	"github.com/scorum/bitshares-go/types"
+	"github.com/youthonline/bitshares-go/types"
 )
 
 type Bucket struct {
