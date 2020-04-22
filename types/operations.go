@@ -125,11 +125,21 @@ type TransferOperation struct {
 	Extensions []json.RawMessage `json:"extensions"`
 }
 
+//type Memo struct {
+//	From    string `json:"from"`
+//	To      string `json:"to"`
+//	Nonce   string `json:"nonce"`
+//	Message string `json:"message"`
+//}
+
+type UInt64 uint64
+type Buffer []byte
+
 type Memo struct {
-	From    string `json:"from"`
-	To      string `json:"to"`
-	Nonce   string `json:"nonce"`
-	Message string `json:"message"`
+	From    PublicKey `json:"from"`
+	To      PublicKey `json:"to"`
+	Nonce   UInt64    `json:"nonce"`
+	Message Buffer    `json:"message"`
 }
 
 func (op *TransferOperation) Type() OpType { return TransferOpType }
